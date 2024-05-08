@@ -8,16 +8,12 @@ namespace SQLiteRouletteAPI.Helpers
 {
     public class PayoutHelper : IPayoutHelper
     {
-        private readonly IBetHelper _betHelper;
-        private readonly ISpinResultHelper _spinResultHelper;
         private readonly IPayoutRepository _payoutRepository;
         private readonly ISpinResultRepository _spinResultRepository;
         private readonly IBetRepository _betRepository;
 
-        public PayoutHelper(IBetHelper betHelper, ISpinResultHelper spinResultHelper, IPayoutRepository payoutRepository, ISpinResultRepository spinResultRepository, IBetRepository betRepository)
+        public PayoutHelper(IPayoutRepository payoutRepository, ISpinResultRepository spinResultRepository, IBetRepository betRepository)
         {
-            _betHelper = betHelper;
-            _spinResultHelper = spinResultHelper;
             _payoutRepository = payoutRepository;
             _spinResultRepository = spinResultRepository;
             _betRepository = betRepository;

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SQLiteRouletteAPI.Data;
 using SQLiteRouletteAPI.Interfaces;
 using SQLiteRouletteAPI.Repos;
+using SQLiteRouletteAPI.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IBetRepository, BetRepository>();
 builder.Services.AddScoped<ISpinResultRepository, SpinResultRepository>();
 builder.Services.AddScoped<IPayoutRepository, PayoutRepository>();
+builder.Services.AddScoped<IPayoutHelper, PayoutHelper>();
 builder.Services.AddSingleton<GlobalExceptionHandler>();
 
 // Inject IConfiguration

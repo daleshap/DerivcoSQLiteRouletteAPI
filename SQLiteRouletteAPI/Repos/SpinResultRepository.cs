@@ -29,9 +29,9 @@ namespace SQLiteRouletteAPI.Repos
             return await _dbContext.SpinResults.ToListAsync();
         }
 
-        public async Task<SpinResult> GetSpinResultAsync(int spinResultId)
+        public async Task<SpinResult> GetSpinResultAsync(long spinIdNumber)
         {
-            return await _dbContext.SpinResults.FindAsync(spinResultId);
+            return await _dbContext.SpinResults.FindAsync(spinIdNumber);
         }
     }
 }

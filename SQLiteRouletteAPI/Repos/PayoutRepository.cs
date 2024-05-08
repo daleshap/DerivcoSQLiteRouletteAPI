@@ -8,7 +8,6 @@ namespace SQLiteRouletteAPI.Repos
     public class PayoutRepository : IPayoutRepository
     {
         private readonly RouletteDbContext _dbContext;
-
         public PayoutRepository(RouletteDbContext dbContext)
         {
             _dbContext = dbContext;

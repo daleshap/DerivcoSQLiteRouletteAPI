@@ -10,18 +10,16 @@ namespace SQLiteRouletteAPI.Controllers
     {
 
         private readonly ISpinResultRepository _spinResultRepository;
-        private readonly ISpinResultHelper _spinResultHelper;
-        public SpinResultController(ISpinResultRepository spinResultRepository, ISpinResultHelper spinResultHelper)
+        public SpinResultController(ISpinResultRepository spinResultRepository)
         {
             _spinResultRepository = spinResultRepository;
-            _spinResultHelper = spinResultHelper;
         }
 
         [Route("SpinTheWheel")]
         [HttpPost]
         public async Task<ActionResult<int>> SpinTheWheel()
         {
-            int result = _spinResultHelper.SpinTheWheel();
+            int result = new Random().Next(0, 37);
             return await AddSpinResult(result);
         }
 

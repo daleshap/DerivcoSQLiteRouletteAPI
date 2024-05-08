@@ -9,10 +9,12 @@ namespace SQLiteRouletteAPI.Controllers
     public class PayoutController : ControllerBase
     {
         private readonly IPayoutRepository _payoutRepository;
+        private readonly IPayoutHelper _payoutHelper;
 
-        public PayoutController(IPayoutRepository payoutRepository)
+        public PayoutController(IPayoutRepository payoutRepository, IPayoutHelper payoutHelper)
         {
             _payoutRepository = payoutRepository;
+            _payoutHelper = payoutHelper;
         }
 
         [Route("AddPayout")]
@@ -39,6 +41,14 @@ namespace SQLiteRouletteAPI.Controllers
             if (payout == null)
                 return NotFound();
             return Ok(payout);
+        }
+
+        [Route("CalculatePayout")]
+        [HttpPost]
+        public async Task<ActionResult<string>> CalculatePayout(int spinIdNumber)
+        {
+            await _payoutHelper.CalculatePayoutTotalAsync(spinIdNumber);
+            return Ok("All Payouts Calculated");
         }
     }
 }

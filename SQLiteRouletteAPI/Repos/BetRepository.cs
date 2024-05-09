@@ -23,7 +23,6 @@ namespace SQLiteRouletteAPI.Repos
             return "Bet Placed Successfully";
         }
 
-
         public async Task<List<Bet>> GetBetsForSpinAsync(int spinIdNumber)
         {
             return await _dbContext.Bets.Where(b => b.SpinIdNumber == spinIdNumber).ToListAsync();

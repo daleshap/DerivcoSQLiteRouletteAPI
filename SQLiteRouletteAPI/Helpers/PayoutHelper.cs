@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SQLiteRouletteAPI.Interfaces;
 using SQLiteRouletteAPI.Models;
-using System.Data;
 using System.Reflection;
 
 namespace SQLiteRouletteAPI.Helpers

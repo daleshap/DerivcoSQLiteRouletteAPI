@@ -33,5 +33,10 @@ namespace SQLiteRouletteAPI.Repos
         {
             return await _dbContext.SpinResults.FindAsync(spinIdNumber);
         }
+
+        public async Task<SpinResult> GetLatestSpinResultAsync()
+        {
+            return await _dbContext.SpinResults.OrderBy(s => s.SpinIdNumber).LastOrDefaultAsync();
+        }
     }
 }

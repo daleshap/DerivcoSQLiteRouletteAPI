@@ -49,5 +49,15 @@ namespace SQLiteRouletteAPI.Controllers
             return Ok(spinResult);
         }
 
+        [Route("GetLatestSpinResult")]
+        [HttpGet]
+        public async Task<ActionResult<SpinResult>> GetLatestSpinResult()
+        {
+            var spinResult = await _spinResultRepository.GetLatestSpinResultAsync();
+            if (spinResult == null)
+                return NotFound();
+            return Ok(spinResult);
+        }
+
     }
 }

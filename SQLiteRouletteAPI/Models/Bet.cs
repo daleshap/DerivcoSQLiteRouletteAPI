@@ -9,8 +9,8 @@ namespace SQLiteRouletteAPI.Models
         {
         }
 
-        public long BetId { get; set; }
-        public long? UserId { get; set; }
+        public int BetId { get; set; }
+        public int? UserId { get; set; }
         public long? SpinIdNumber { get; set; }
         public double? BetOnColorRed { get; set; }
         public double? BetOnColorBlack { get; set; }

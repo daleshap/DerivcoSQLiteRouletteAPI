@@ -1,6 +1,4 @@
 ﻿using SQLiteRouletteAPI.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace SQLiteRouletteAPI.Interfaces
 {
@@ -9,5 +7,6 @@ namespace SQLiteRouletteAPI.Interfaces
         Task<long> AddSpinResultAsync(int result);
         Task<List<SpinResult>> GetAllSpinResultsAsync();
         Task<SpinResult> GetSpinResultAsync(long spinIdNumber);
+        Task<SpinResult> GetLatestSpinResultAsync();
     }
 }
